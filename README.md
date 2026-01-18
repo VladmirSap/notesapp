@@ -8,10 +8,10 @@ The project is fully Dockerized, includes Swagger (OpenAPI) documentation and Sp
 ---
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
+- [Project Structure](#project-structure-simplified)
 - [Quick Start with Docker Compose](#quick-start-with-docker-compose)
 - [Running Without Docker](#running-without-docker)
-- [API Documentation (Swagger)](#api-documentation)
+- [API Documentation (Swagger)](#api-documentation-swagger)
 - [API Testing](#api-testing)
 - [REST API Endpoints](#rest-api-endpoints)
 - [Tag Filtering](#tag-filtering)
@@ -23,7 +23,7 @@ The project is fully Dockerized, includes Swagger (OpenAPI) documentation and Sp
 - [Production-Ready Highlights](#production-ready-highlights)
 
 
-## ✨ Features
+## Features
 
 - CRUD operations for notes
 - Tag-based filtering (BUSINESS, PERSONAL, IMPORTANT)
@@ -33,7 +33,7 @@ The project is fully Dockerized, includes Swagger (OpenAPI) documentation and Sp
 - Health checks with Actuator
 - Interactive API documentation with Swagger
 
-## 🧱 Tech Stack
+## Tech Stack
 
 - Java 17 (for local development)
 - Spring Boot
@@ -45,7 +45,7 @@ The project is fully Dockerized, includes Swagger (OpenAPI) documentation and Sp
 - Docker and Docker Compose
 - Docker Desktop installed and running
 
-## 📂 Project Structure (Simplified)
+## Project Structure (Simplified)
 ```bash
 notesapp/
 ├── src/main/java
@@ -62,7 +62,7 @@ notesapp/
 └── README.md
 ```
 
-## 🚀 Quick Start with Docker Compose
+## Quick Start with Docker Compose
 
 ### Prerequisites
 - Docker
@@ -141,7 +141,7 @@ Expected response:
    
 3. Application will be available at: http://localhost:8080
 
-## 📘 API Documentation (Swagger)
+## API Documentation (Swagger)
 
 Swagger UI is available at:
 
@@ -202,7 +202,7 @@ Once running, test the API endpoints:
    ```bash
    curl -X DELETE http://localhost:8080/api/notes/{note-id}
    
-## 🔗 REST API Endpoints
+## REST API Endpoints
 
 |Method	      |Endpoint	                         |Description                            |
 |:------------|:---------------------------------|:-----------------------------------------|
@@ -222,7 +222,7 @@ Examples:
 - ?tags=BUSINESS,PERSONAL - Notes with BUSINESS OR PERSONAL tags
 - No tags parameter - All notes
 
-## 🛠 MongoDB Verification
+## MongoDB Verification
 
 Check stored data inside MongoDB container:
 
@@ -230,7 +230,7 @@ Check stored data inside MongoDB container:
 docker exec -it mongodb mongosh notesdb --eval "db.notes.find().pretty()"
 ```
 
-## 🛑 Stopping the Application
+## Stopping the Application
 
 Stop containers:
 ```bash
@@ -242,7 +242,7 @@ Stop containers and remove volumes:
 docker-compose down -v
 ```
 
-## ⚠️ Troubleshooting
+## Troubleshooting
 ### Application not starting:
 1. Check if Docker Desktop is running
 2. Check if ports 8080 and 27017 are available
@@ -259,7 +259,7 @@ docker-compose down -v
 3. Stopping the Application
 
 
-## 🧪 Testing
+## Testing
 
 Run the test suite:
 
@@ -273,7 +273,7 @@ Run specific test:
       mvn test -Dtest=NoteControllerTest 
    ```
 
-## 🎤 Support
+## Support
 
 If you encounter issues:
 1. Check the logs: docker-compose logs
@@ -313,7 +313,7 @@ curl -X POST http://localhost:8080/api/notes \
    docker exec -it mongodb mongosh notesdb --eval "db.notes.find()"
    ```
 
-## ✅ Production-Ready Highlights
+## Production-Ready Highlights
 
 - ✔ Docker Compose orchestration
 - ✔ Health checks via Actuator
