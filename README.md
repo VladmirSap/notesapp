@@ -1,30 +1,80 @@
-# Daily Notes Application
+# 📝 Daily Notes Application
 
 A Spring Boot REST API for managing daily notes with MongoDB storage.
+The project is fully Dockerized, includes Swagger (OpenAPI) documentation and Spring Boot Actuator for monitoring.
 
-## Features
+## Table of Contents
 
-- Create, read, update, and delete notes
-- Filter notes by tags (BUSINESS, PERSONAL, IMPORTANT)
+---
+- [Features](#Features)
+- [Tech Stack](#Tech Stack)
+- [Project Structure](#Project Structure)
+- [Quick Start with Docker Compose](#Quick Start with Docker Compose)
+- [Running Without Docker](#Running Without Docker)
+- [API Documentation (Swagger)](#API Documentation (Swagger))
+- [API Testing](#API Testing)
+- [REST API Endpoints](#REST API Endpoints)
+- [Tag Filtering](#Tag Filtering)
+- [MongoDB Verification](#MongoDB Verification)
+- [Stopping the Application](#Stopping the Application)
+- [Troubleshooting](#Troubleshooting)
+- [Testing](#Testing)
+- [Support](#Support)
+- [Production-Ready Highlights](#Production-Ready Highlights)
+
+
+## ✨ Features
+
+- CRUD operations for notes
+- Tag-based filtering (BUSINESS, PERSONAL, IMPORTANT)
 - Word statistics for each note
 - Pagination and sorting (newest first)
 - Input validation
+- Health checks with Actuator
+- Interactive API documentation with Swagger
 
-## Prerequisites
+## 🧱 Tech Stack
 
+- Java 17 (for local development)
+- Spring Boot
+- Spring Data MongoDB
+- Spring Boot Actuator
+- Swagger / OpenAPI
+- MongoDB
+- Maven (for local development only)
 - Docker and Docker Compose
 - Docker Desktop installed and running
-- Java 17 (for local development)
-- Maven (for local development only)
 
-## Quick Start with Docker Compose
+## 📂 Project Structure (Simplified)
+```bash
+notesapp/
+├── src/main/java
+│   └── com.example.notes
+│       ├── controller
+│       ├── service
+│       ├── repository
+│       └── model
+├── src/main/resources
+│   └── application.properties
+├── Dockerfile
+├── docker-compose.yml
+├── pom.xml
+└── README.md
+```
+
+## 🚀 Quick Start with Docker Compose
+
+### Prerequisites
+- Docker
+- Docker Compose
+- Docker Desktop Running
 
 ### Method 1: Using Docker Compose (Recommended)
 
 1. **Build and run the application:**
    ```bash
    docker-compose up --build
-   
+
 2. **Wait for services to start (takes 1-2 minutes)**
 - MongoDB will start on port 27017
 - Spring Boot app will start on port 8080
@@ -40,6 +90,13 @@ You should see both notesapp and mongodb containers.
 
    ```bash
    curl http://localhost:8080/actuator/health
+
+Expected response:
+
+   {
+   "status": "UP"
+   }       
+
 
 ### Method 2: Step by Step Docker Commands
 
@@ -83,6 +140,18 @@ You should see both notesapp and mongodb containers.
    mvn spring-boot:run
    
 3. Application will be available at: http://localhost:8080
+
+## 📘 API Documentation (Swagger)
+
+Swagger UI is available at:
+
+👉 http://localhost:8080/swagger-ui/index.html
+
+Use Swagger to:
+
+   - Explore all endpoints
+   - Test requests
+   - Validate request/response models
 
 ## API Testing
 Once running, test the API endpoints:
@@ -133,7 +202,7 @@ Once running, test the API endpoints:
    ```bash
    curl -X DELETE http://localhost:8080/api/notes/{note-id}
    
-## API Endpoints Summary
+## 🔗 REST API Endpoints
 
 Method	      Endpoint	                         Description
 POST	      /api/notes	                     Create a new note
@@ -152,7 +221,27 @@ Examples:
 - ?tags=BUSINESS,PERSONAL - Notes with BUSINESS OR PERSONAL tags
 - No tags parameter - All notes
 
-## Troubleshooting
+## 🛠 MongoDB Verification
+
+Check stored data inside MongoDB container:
+
+```bash
+docker exec -it mongodb mongosh notesdb --eval "db.notes.find().pretty()"
+```
+
+## 🛑 Stopping the Application
+
+Stop containers:
+```bash
+docker-compose down
+```
+
+Stop containers and remove volumes:
+```bash
+docker-compose down -v
+```
+
+## ⚠️ Troubleshooting
 ### Application not starting:
 1. Check if Docker Desktop is running
 2. Check if ports 8080 and 27017 are available
@@ -168,19 +257,8 @@ Examples:
 2. Rebuild containers: docker-compose down && docker-compose up --build
 3. Stopping the Application
 
-## Stopping the Application
 
-   ```bash
-      docker-compose down
-   ```
-
-To also remove data volumes:
-
-   ```bash
-      docker-compose down -v  
-   ```
-
-### Testing
+## 🧪 Testing
 
 Run the test suite:
 
@@ -194,7 +272,7 @@ Run specific test:
       mvn test -Dtest=NoteControllerTest 
    ```
 
-### Support
+## 🎤 Support
 
 If you encounter issues:
 1. Check the logs: docker-compose logs
@@ -203,7 +281,7 @@ If you encounter issues:
 4. Check application health: curl http://localhost:8080/actuator/health
 
    ```text
-   ## Key Files That Fulfill Requirements
+   Key Files That Fulfill Requirements
    
    1. **`docker-compose.yml`** - Docker Compose setup
    2. **`Dockerfile`** - Application containerization  
@@ -233,3 +311,12 @@ curl -X POST http://localhost:8080/api/notes \
    ```bash
    docker exec -it mongodb mongosh notesdb --eval "db.notes.find()"
    ```
+
+## ✅ Production-Ready Highlights
+
+- ✔ Docker Compose orchestration
+- ✔ Health checks via Actuator
+- ✔ Swagger API documentation
+- ✔ MongoDB persistence
+- ✔ Clean REST architecture
+- ✔ Ready for frontend integration
