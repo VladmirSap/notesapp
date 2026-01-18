@@ -7,20 +7,20 @@ The project is fully Dockerized, includes Swagger (OpenAPI) documentation and Sp
 
 ---
 - [Features](#Features)
-- [Tech Stack](#Tech Stack)
-- [Project Structure](#Project Structure)
-- [Quick Start with Docker Compose](#Quick Start with Docker Compose)
-- [Running Without Docker](#Running Without Docker)
-- [API Documentation (Swagger)](#API Documentation (Swagger))
-- [API Testing](#API Testing)
-- [REST API Endpoints](#REST API Endpoints)
-- [Tag Filtering](#Tag Filtering)
-- [MongoDB Verification](#MongoDB Verification)
-- [Stopping the Application](#Stopping the Application)
+- [Tech Stack](#Tech-Stack)
+- [Project Structure](#Project-Structure)
+- [Quick Start with Docker Compose](#Quick-Start-with-Docker-Compose)
+- [Running Without Docker](#Running-Without-Docker)
+- [API Documentation (Swagger)](#API-Documentation)
+- [API Testing](#API-Testing)
+- [REST API Endpoints](#REST-API-Endpoints)
+- [Tag Filtering](#Tag-Filtering)
+- [MongoDB Verification](#MongoDB-Verification)
+- [Stopping the Application](#Stopping-the-Application)
 - [Troubleshooting](#Troubleshooting)
 - [Testing](#Testing)
 - [Support](#Support)
-- [Production-Ready Highlights](#Production-Ready Highlights)
+- [Production-Ready Highlights](#Production-Ready-Highlights)
 
 
 ## ✨ Features
@@ -204,14 +204,15 @@ Once running, test the API endpoints:
    
 ## 🔗 REST API Endpoints
 
-Method	      Endpoint	                         Description
-POST	      /api/notes	                     Create a new note
-GET 	      /api/notes	                     Get all notes (paginated, filtered by tags)
-GET	          /api/notes/{id}	                 Get specific note details
-GET	          /api/notes/{id}/statistics	     Get word statistics for a note
-PUT	          /api/notes/{id}	                 Update a note
-DELETE	      /api/notes/{id}	                 Delete a note
-GET        	  /actuator/health	                 Application health check
+|Method	      |Endpoint	                         |Description                            |
+|:------------|:---------------------------------|:-----------------------------------------|
+|POST	      |/api/notes	                     |Create a new note                          |
+|GET 	      |/api/notes	                     |Get all notes (paginated, filtered by tags)|
+|GET	      |/api/notes/{id}	                 |Get specific note details                  |
+|GET	      |/api/notes/{id}/statistics	     |Get word statistics for a note             |
+|PUT	      |/api/notes/{id}	                 |Update a note                              |
+|DELETE	  |/api/notes/{id}	                 |Delete a note                              |
+|GET        |/actuator/health	                 |Application health check                   |
 
 ## Tag Filtering
 Available tags: BUSINESS, PERSONAL, IMPORTANT
