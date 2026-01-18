@@ -6,21 +6,21 @@ The project is fully Dockerized, includes Swagger (OpenAPI) documentation and Sp
 ## Table of Contents
 
 ---
-- [Features](#Features)
-- [Tech Stack](#Tech-Stack)
-- [Project Structure](#Project-Structure)
-- [Quick Start with Docker Compose](#Quick-Start-with-Docker-Compose)
-- [Running Without Docker](#Running-Without-Docker)
-- [API Documentation (Swagger)](#API-Documentation)
-- [API Testing](#API-Testing)
-- [REST API Endpoints](#REST-API-Endpoints)
-- [Tag Filtering](#Tag-Filtering)
-- [MongoDB Verification](#MongoDB-Verification)
-- [Stopping the Application](#Stopping-the-Application)
-- [Troubleshooting](#Troubleshooting)
-- [Testing](#Testing)
-- [Support](#Support)
-- [Production-Ready Highlights](#Production-Ready-Highlights)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Quick Start with Docker Compose](#quick-start-with-docker-compose)
+- [Running Without Docker](#running-without-docker)
+- [API Documentation (Swagger)](#api-documentation)
+- [API Testing](#api-testing)
+- [REST API Endpoints](#rest-api-endpoints)
+- [Tag Filtering](#tag-filtering)
+- [MongoDB Verification](#mongodb-verification)
+- [Stopping the Application](#stopping-the-application)
+- [Troubleshooting](#troubleshooting)
+- [Testing](#testing)
+- [Support](#support)
+- [Production-Ready Highlights](#production-ready-highlights)
 
 
 ## ✨ Features
